@@ -3,6 +3,7 @@ package main
 import (
 "os"
 "fmt"
+"bufio"
 )
 
 func main() {
@@ -24,7 +25,15 @@ func runFile(filename string) {
 }
 
 func runPrompt() {
-	fmt.Println("runPrompt")
+	scanner := bufio.NewScanner(os.Stdin)
+	fmt.Print("> ")
+	for scanner.Scan(){
+		run()	
+		fmt.Println(scanner.Text())
+		fmt.Print("> ")
+	}
 }
 
+func run() {
 
+}
