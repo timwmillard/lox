@@ -1,15 +1,15 @@
 package main
 
 import (
-"os"
-"fmt"
-"bufio"
+	"bufio"
+	"fmt"
+	"os"
 )
 
 func main() {
-	
+
 	if len(os.Args) < 2 {
-		runPrompt();
+		runPrompt()
 	}
 	if len(os.Args) == 2 {
 		runFile(os.Args[1])
@@ -27,13 +27,13 @@ func runFile(filename string) {
 func runPrompt() {
 	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Print("> ")
-	for scanner.Scan(){
-		run()	
+	for scanner.Scan() {
+		run(scanner.Text())
 		fmt.Println(scanner.Text())
 		fmt.Print("> ")
 	}
 }
 
-func run() {
+func run(source string) {
 
 }
