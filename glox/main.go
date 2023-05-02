@@ -21,7 +21,12 @@ func main() {
 }
 
 func runFile(filename string) {
-	fmt.Println("runFile", filename)
+	src, err := os.ReadFile(filename)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Unable to read file %s", filename)
+		os.Exit(65)
+	}
+	run(string(src))
 }
 
 func runPrompt() {
@@ -29,11 +34,7 @@ func runPrompt() {
 	fmt.Print("> ")
 	for scanner.Scan() {
 		run(scanner.Text())
-		fmt.Println(scanner.Text())
 		fmt.Print("> ")
 	}
 }
 
-func run(source string) {
-
-}

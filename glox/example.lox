@@ -1,0 +1,4 @@
+var tim = 4;
+
+print tim;
+
